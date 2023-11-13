@@ -1,0 +1,36 @@
+import random
+
+def rock_paper_scissors():
+    choices = ["rock", "paper", "scissors"]
+    player_score = 0
+    cpu_score = 0
+
+    while True:
+        player_choice = input("Rock, Paper or Scissors?").lower()
+        if player_choice == "end":
+            break
+        if player_choice not in choices:
+            print("Invalid choice. Try again.")
+            continue
+
+        cpu_choice = random.choice(choices)
+        print(f"CPU chose {cpu_choice}")
+
+        if player_choice == cpu_choice:
+            print("Tie!")
+        elif (player_choice == "rock" and cpu_choice == "scissors") or \
+             (player_choice == "scissors" and cpu_choice == "paper") or \
+             (player_choice == "paper" and cpu_choice == "rock"):
+            player_score += 1
+            print(f"You win! {player_choice.capitalize()} beats {cpu_choice}")
+        else:
+            cpu_score += 1
+            print(f"You lose… {cpu_choice.capitalize()} beats {player_choice}")
+
+    print("Final Scores:")
+    print(f"CPU: {cpu_score}")
+    print(f"Player: {player_score}")
+
+# rock_paper_scissors()
+
+# Uncomment the above line to play the game. The function must be called in an interactive environment.
